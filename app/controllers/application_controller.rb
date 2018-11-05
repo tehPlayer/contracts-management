@@ -18,5 +18,4 @@ class ApplicationController < ActionController::Base
     # contracts_path
     root_path
   end
-
 end
