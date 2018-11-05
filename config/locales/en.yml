@@ -30,3 +30,6 @@ en:
           attributes:
             email:
               taken: This email is already taken
+            password:
+              too_short: The password is too short
+            

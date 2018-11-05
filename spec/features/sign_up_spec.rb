@@ -93,7 +93,6 @@ RSpec.feature 'Sign up', type: :feature do
   end
 
   scenario 'The password is too short' do
-    create(:user, email: 'john.doe@gmail.com')
     visit '/signup'
 
     fill_in 'Full Name', with: 'John Doe'
@@ -109,7 +108,6 @@ RSpec.feature 'Sign up', type: :feature do
   end
 
   scenario 'Users fill form with a password confirmation that doesn\'t match' do
-    create(:user, email: 'john.doe@gmail.com')
     visit '/signup'
 
     fill_in 'Full Name', with: 'John Doe'
