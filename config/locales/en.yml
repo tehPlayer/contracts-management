@@ -20,4 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        full_name: Full Name
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: This email is already taken

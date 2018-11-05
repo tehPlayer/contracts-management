@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     get 'signin', to: 'devise/sessions#new'
     post 'signin', to: 'devise/sessions#create'
     get 'signup', to: 'devise/registrations#new'
+    post 'signup', to: 'devise/registrations#create'
   end
-  root to: 'main#index'
 
+  root to: 'main#index'
 end

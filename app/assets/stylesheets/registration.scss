@@ -1,0 +1,14 @@
+.user-form {
+  margin: auto;
+  width: 25%;
+
+  label {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  input.form-control {
+    border-radius: 10px;
+  }
+}
