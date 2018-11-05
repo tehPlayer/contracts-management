@@ -5,19 +5,25 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Backend
 gem 'rails', '~> 5.0.7'
 gem 'pg'
 gem 'puma', '~> 3.0'
+gem 'devise', '~> 4.5'
+
+# BE/FE
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-
-gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'webpacker'
+
+# Frontend
+gem 'jquery-rails'
+gem 'turbolinks', '~> 5'
 gem 'react-rails'
 gem 'slim-rails'
+gem 'bootstrap', '~> 4.1.3'
 
 group :development, :test do
   gem 'pry', '~> 0.11.3'
@@ -26,6 +32,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'rspec', '~> 3.8'
   gem 'rspec-rails', '~> 3.8'
+  gem 'capybara'
 end
 
 group :development do
