@@ -20,4 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        full_name: Full Name
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: This email is already taken
+            password:
+              too_short: The password is too short
+            password_confirmation:
+              confirmation: The password confirmation doesn't match
