@@ -11,4 +11,13 @@
   input.form-control {
     border-radius: 10px;
   }
+
+  input[type=submit] {
+    margin: auto;
+    display: block;
+    color: #2c2f33;
+    border: 0;
+    background-color: #b4bbc6;
+    width: 90px;
+  }
 }

@@ -13,6 +13,6 @@
     = f.label :password_confirmation, 'Password Confirmation'
     = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
   .actions
-    = f.submit "Sign Up", class: 'btn btn-secondary m-auto d-block'
+    = f.submit "Sign Up", class: 'btn'
     hr
-    = link_to "Already have an account? Sign in", signin_path, class: 'btn btn-primary m-auto d-block'
+    = link_to "Already have an account? Sign in!", signin_path, class: 'btn btn-primary m-auto'
