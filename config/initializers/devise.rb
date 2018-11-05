@@ -287,4 +287,8 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+
+  config.warden do |manager|
+    manager.failure_app = CustomFailure
+  end
 end
