@@ -32,4 +32,5 @@ en:
               taken: This email is already taken
             password:
               too_short: The password is too short
-            
+            password_confirmation:
+              confirmation: The password confirmation doesn't match
