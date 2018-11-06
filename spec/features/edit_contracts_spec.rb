@@ -56,7 +56,7 @@ RSpec.feature "Edit Contracts", type: :feature, js: true do
       expect(page).to have_text('Your contract was updated')
     end
 
-    scenario 'Create contract with negative costs' do
+    scenario 'Update contract with negative costs' do
       within('form.user-form') do
         find('select[name="contract[vendor_id]"]').find("option[value='#{vodafone.id}']").select_option
         find('select[name="contract[category_id]"]').find("option[value='#{internet.id}']").select_option
@@ -75,7 +75,7 @@ RSpec.feature "Edit Contracts", type: :feature, js: true do
       expect(page).to have_css('form.user-form')
     end
 
-    scenario 'Create contract with zero costs' do
+    scenario 'Update contract with zero costs' do
       within('form.user-form') do
         find('select[name="contract[vendor_id]"]').find("option[value='#{vodafone.id}']").select_option
         find('select[name="contract[category_id]"]').find("option[value='#{internet.id}']").select_option
@@ -94,7 +94,7 @@ RSpec.feature "Edit Contracts", type: :feature, js: true do
       expect(page).to have_css('form.user-form')
     end
 
-    scenario 'Create contract with non-numerical costs' do
+    scenario 'Update contract with non-numerical costs' do
       within('form.user-form') do
         find('select[name="contract[vendor_id]"]').find("option[value='#{vodafone.id}']").select_option
         find('select[name="contract[category_id]"]').find("option[value='#{internet.id}']").select_option
@@ -113,7 +113,7 @@ RSpec.feature "Edit Contracts", type: :feature, js: true do
       expect(page).to have_css('form.user-form')
     end
 
-    scenario 'Create a contract with an ends on date in the past' do
+    scenario 'Update a contract with an ends on date in the past' do
       within('form.user-form') do
         find('select[name="contract[vendor_id]"]').find("option[value='#{vodafone.id}']").select_option
         find('select[name="contract[category_id]"]').find("option[value='#{internet.id}']").select_option
@@ -132,7 +132,7 @@ RSpec.feature "Edit Contracts", type: :feature, js: true do
       expect(page).to have_css('form.user-form')
     end
 
-    # scenario 'Create a contract with an invalid ends on'
+    # scenario 'Update a contract with an invalid ends on'
 
     scenario 'Vendor is not selected' do
       within('form.user-form') do
