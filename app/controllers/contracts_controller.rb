@@ -9,6 +9,7 @@ class ContractsController < ApplicationController
   end
 
   def new
+    @vendors = Vendor.all
     @contract = current_user.contracts.new
   end
 end

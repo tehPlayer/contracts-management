@@ -1,5 +1,7 @@
 import React from 'react';
 import ListItem from './ListItem/ListItem';
+import Backdrop from '../../UI/Backdrop/Backdrop';
+import Spinner from '../../UI/Spinner/Spinner';
 
 const List = (props) => {
   let listItems = props.contracts.map((contract) => (
@@ -11,7 +13,7 @@ const List = (props) => {
       endsOn={contract.endsOn} />
   ));
 
-  let message
+  let message;
   if (listItems.length === 0) {
     message = (
       <div className="text-center">
@@ -19,6 +21,7 @@ const List = (props) => {
       </div>
     )
   }
+  let show = true;
 
   return (
     <div className="contracts-list">

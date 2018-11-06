@@ -4,4 +4,4 @@
       h2.heading.mb-3 My contracts
       = link_to 'Add Contract', new_contract_path, class: 'btn add-contract'
 
-  = react_component('List/List', {contracts: @contracts})
+  = react_component('Contracts/List/List', {contracts: @contracts})
