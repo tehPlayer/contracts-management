@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CategoriesController, type: :controller do
+RSpec.describe Api::CategoriesController, type: :controller do
 
   describe "GET #index" do
     let!(:user) { create(:user) }

@@ -90,4 +90,7 @@ Capybara.register_driver :headless_chrome do |app|
     desired_capabilities: capabilities
 end
 
+# Comment this to use Firefox browser
 Capybara.javascript_driver = :headless_chrome
+Capybara.server_port = 3001
+

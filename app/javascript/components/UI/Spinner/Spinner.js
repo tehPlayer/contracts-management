@@ -6,7 +6,7 @@ import './Spinner.css';
 
 const spinner = (props) => (
   <Backdrop show={props.show}>
-    <div className="Loader">Loading...</div>
+    <div className="Loader" id="Spinner">Loading...</div>
   </Backdrop>
 );
 

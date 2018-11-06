@@ -16,7 +16,7 @@ class ContractsController < ApplicationController
   def create
     @contract = current_user.contracts.new(contract_params)
     if @contract.save
-      redirect_to contracts_path, notice: "Contract created successfully."
+      redirect_to contracts_path, notice: "Your contract was added."
     else
       @vendors = Vendor.all
       @categories = @contract.vendor&.categories
