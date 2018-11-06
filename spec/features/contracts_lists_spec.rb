@@ -22,7 +22,7 @@ RSpec.feature "Contracts lists", type: :feature, js: true do
       expect(page).to have_selector(:link_or_button, 'Add Contract')
     end
     
-    xscenario 'Create a new contract' do
+    scenario 'Create a new contract' do
       click_on 'Add Contract'
 
       expect(page).to have_current_path('/contracts/new')
@@ -52,7 +52,7 @@ RSpec.feature "Contracts lists", type: :feature, js: true do
       expect(page).to have_selector(:link_or_button, 'Add Contract')
     end
 
-    xscenario 'Create a new contract' do
+    scenario 'Create a new contract' do
       click_on 'Add Contract'
 
       expect(page).to have_current_path('/contracts/new')
