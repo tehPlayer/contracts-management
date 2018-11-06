@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:index]
   end
 
-  resources :contracts, only: [:index, :new, :create]
+  resources :contracts, except: [:show, :destroy]
 
   devise_for :users, controllers: {
     sessions: 'users/sessions'
