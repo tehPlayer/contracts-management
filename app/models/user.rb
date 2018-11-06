@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   validates :full_name, presence: true
 
+  has_many :contracts
+
   def first_name
     full_name.split(' ').first
   end

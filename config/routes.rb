@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'main#index'
+  root to: 'contracts#index'
+
+  resources :contracts, only: [:index]
+
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
