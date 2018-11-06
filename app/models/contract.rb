@@ -5,6 +5,9 @@ class Contract < ApplicationRecord
 
   validate :category_belongs_to_vendor, if: proc{|m| m.vendor_id_changed? || m.category_id_changed?}
 
+  delegate :name, to: :vendor, prefix: true
+  delegate :name, to: :category, prefix: true
+
   private
 
   def category_belongs_to_vendor

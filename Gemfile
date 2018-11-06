@@ -34,6 +34,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'capybara'
   gem 'factory_bot_rails'
+  gem 'capybara-selenium'
 end
 
 group :development do

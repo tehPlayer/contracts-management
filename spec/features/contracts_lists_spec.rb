@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "ContractsLists", type: :feature do
+RSpec.feature "ContractsLists", type: :feature, js: true do
   scenario 'User is not signed in' do
     visit '/contracts'
 

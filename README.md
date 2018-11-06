@@ -2,10 +2,11 @@
 
 # Requirements
 
+- Node (6+; I use 10+)
 - Ruby
 - PostgreSQL
-- Node (6+)
 - Yarn - `brew install yarn --without-node`
+- Chromedriver - `brew cask install chromedriver` (JS testing)
 
 # Installation
 

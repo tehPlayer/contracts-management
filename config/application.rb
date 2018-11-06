@@ -12,6 +12,6 @@ module VoldersTrial
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths += %W(#{config.root}/lib)
-
+    config.react.camelize_props = true
   end
 end
