@@ -86,7 +86,7 @@ export default class Form extends Component {
               onChange={this.setEndsOn}
               value={this.state.endsOn || ''}/>
           </div>
-          <input type="submit" className="btn" value="Create" />
+          <input type="submit" className="btn" value={this.props.submitName} />
         </form>
       </React.Fragment>
     );
