@@ -3,7 +3,7 @@ class Contract < ApplicationRecord
   belongs_to :category
   belongs_to :user
 
-  validates :costs, presence: true
+  validates :costs, presence: true, numericality: {greater_than: 0.0}
   validates :vendor, presence: true
   validates :category, presence: true
   validates :ends_on, presence: true
