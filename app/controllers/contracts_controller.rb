@@ -21,6 +21,7 @@ class ContractsController < ApplicationController
       @vendors = Vendor.all
       @categories = @contract.vendor&.categories
 
+      flash[:alert] = @contract.errors.full_messages.to_sentence
       render :new
     end
   end
