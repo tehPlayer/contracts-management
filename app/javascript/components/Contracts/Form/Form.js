@@ -13,20 +13,28 @@ export default class Form extends Component {
     vendors: this.props.vendors,
     categories: this.props.categories || [],
     costs: this.props.contract.costs,
-    endsOn: this.props.contract.endsOn
+    endsOn: moment(this.props.contract.endsOn).toDate()
   };
 
   vendorChanged = (event) => {
     let vendor = event.target.value;
-    this.setState({selectedVendor: vendor, categories: [], showSpinner: true})
+    this.setState({
+      selectedVendor: vendor,
+      selectedCategory: undefined,
+      categories: [],
+      showSpinner: true
+    })
     axios.get('/categories.json?vendor_id=' + vendor)
       .then(response => {
-        console.log(response);
         this.setState({categories: response.data, showSpinner: false,});
       })
       .catch(error => {
         this.setState({showSpinner: false});
       });
+  }
+
+  categoryChanged = (event) => {
+    this.setState({selectedCategory: event.target.value})
   }
 
   vendorOptions = () => {
@@ -47,7 +55,8 @@ export default class Form extends Component {
     return (
       <React.Fragment>
         <Spinner show={this.state.showSpinner} />
-        <form className="user-form" action={this.props.targetAction} method="post">
+        <form className="user-form" action={this.props.formAction} method="post">
+          <input type="hidden" name="_method" value={this.props.formMethod} />
           <input type="hidden" name="authenticity_token" value={this.props.csrfToken} />
           <div className="form-group">
             <label htmlFor="contract[vendor_id]">Vendor</label>
@@ -65,7 +74,8 @@ export default class Form extends Component {
             <select
               className="form-control"
               name="contract[category_id]"
-              defaultValue={this.state.selectedCategory || ''}>
+              onChange={this.categoryChanged}
+              value={this.state.selectedCategory || ''}>
               <option value="" disabled>Select a category</option>
               {this.categoryOptions()}
             </select>

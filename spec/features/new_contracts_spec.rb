@@ -133,7 +133,7 @@ RSpec.feature "New Contracts", type: :feature, js: true do
 
     scenario 'Vendor is not selected' do
       within('form.user-form') do
-        vendor = find('select[name="contract[vendor_id]"] option[selected]').text
+        vendor = find('select[name="contract[vendor_id]"] option:checked').text
         category = find('select[name="contract[category_id]"] option').text
 
         expect(vendor).to eq('Select a vendor')

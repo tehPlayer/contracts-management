@@ -6,7 +6,8 @@
       vendors: @vendors, \
       contract: @contract, \
       categories: @categories, \
-      target_action: contracts_path(@contract), \
+      form_action: contract_path(@contract), \
+      form_method: 'put', \
       csrf_token: form_authenticity_token, \
       submit_name: 'Update' \
     })

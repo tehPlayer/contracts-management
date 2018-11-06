@@ -45,9 +45,7 @@ RSpec.feature "Edit Contracts", type: :feature, js: true do
           find('.react-calendar__month-view__days__day:last-child').click
         end
 
-        expect {
-          click_on('Update')
-        }.to change(Contract, :count).by(1)
+        click_on('Update')
       end
 
       expect(page).to have_text(
@@ -134,20 +132,19 @@ RSpec.feature "Edit Contracts", type: :feature, js: true do
 
     # scenario 'Update a contract with an invalid ends on'
 
-    scenario 'Vendor is not selected' do
+    scenario 'Contract vendor and its categories are selected' do
       within('form.user-form') do
-        vendor = find('select[name="contract[vendor_id]"] option[selected]').text
-        category = find('select[name="contract[category_id]"] option').text
+        vendor = find('select[name="contract[vendor_id]"] option:checked').text
+        category = find('select[name="contract[category_id]"] option:checked').text
 
-        expect(vendor).to eq('Select a vendor')
-        expect(category).to eq('Select a category')
-        expect(all('select[name="contract[category_id]"] option').size).to eq(1)
+        expect(vendor).to eq('O2')
+        expect(category).to eq('Internet')
       end
     end
 
     scenario 'Viewing available vendors' do
       within('form.user-form') do
-        vendors = all('select[name="contract[vendor_id]"] option:not(:checked)').map(&:text)
+        vendors = all('select[name="contract[vendor_id]"] option:not(:first-child)').map(&:text)
 
         expect(vendors).to contain_exactly("Vodafone", "O2", "Vattenfall")
       end
@@ -156,7 +153,7 @@ RSpec.feature "Edit Contracts", type: :feature, js: true do
     scenario 'Select Vodafone as vendor' do
       within('form.user-form') do
         find('select[name="contract[vendor_id]"]').find("option[value='#{vodafone.id}']").select_option
-        categories = all('select[name="contract[category_id]"] option:not(:checked)').map(&:text)
+        categories = all('select[name="contract[category_id]"] option:not(:first-child)').map(&:text)
 
         expect(categories).to contain_exactly("Internet", "Phone", "Mobile Phone", "DSL")
       end
@@ -166,7 +163,7 @@ RSpec.feature "Edit Contracts", type: :feature, js: true do
     scenario 'Select O2 as vendor' do
       within('form.user-form') do
         find('select[name="contract[vendor_id]"]').find("option[value='#{o2.id}']").select_option
-        categories = all('select[name="contract[category_id]"] option:not(:checked)').map(&:text)
+        categories = all('select[name="contract[category_id]"] option:not(:first-child)').map(&:text)
 
         expect(categories).to contain_exactly("Internet", "DSL")
       end
@@ -176,7 +173,7 @@ RSpec.feature "Edit Contracts", type: :feature, js: true do
     scenario 'Select Vattenfall as vendor' do
       within('form.user-form') do
         find('select[name="contract[vendor_id]"]').find("option[value='#{vattenfall.id}']").select_option
-        categories = all('select[name="contract[category_id]"] option:not(:checked)').map(&:text)
+        categories = all('select[name="contract[category_id]"] option:not(:first-child)').map(&:text)
 
         expect(categories).to contain_exactly("Electricity", "Gas")
       end

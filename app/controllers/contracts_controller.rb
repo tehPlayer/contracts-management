@@ -32,6 +32,16 @@ class ContractsController < ApplicationController
     @categories = @contract.vendor.categories
   end
 
+  def update
+    if @contract.update(contract_params)
+      redirect_to contracts_path, notice: "Your contract was updated."
+    else
+      flash[:alert] = @contract.errors.full_messages.to_sentence
+      edit
+      render action: :edit
+    end
+  end
+
   protected
 
     def set_contract

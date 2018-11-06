@@ -5,7 +5,11 @@ Rails.application.routes.draw do
     resources :categories, only: [:index]
   end
 
-  resources :contracts, except: [:show, :destroy]
+  resources :contracts, except: [:show, :destroy, :edit] do
+    collection do
+      get 'edit/:id' => 'contracts#edit', as: :edit
+    end
+  end
 
   devise_for :users, controllers: {
     sessions: 'users/sessions'
