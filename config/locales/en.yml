@@ -26,10 +26,15 @@ en:
         full_name: Full Name
     errors:
       models:
-        contracts:
+        contract:
           attributes:
             category:
               confirmation: Category doesn't belong to this vendor
+            costs:
+              greater_than: The cost value is invalid
+              not_a_number: The cost value is invalid
+            ends_on:
+              inclusion: Ends On can't be in the past
         user:
           attributes:
             email:

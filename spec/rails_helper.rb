@@ -20,7 +20,7 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -33,6 +33,7 @@ end
 
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include ControllerSupport, type: :controller
   config.include Warden::Test::Helpers, type: :feature
   
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -89,4 +90,7 @@ Capybara.register_driver :headless_chrome do |app|
     desired_capabilities: capabilities
 end
 
+# Comment this to use Firefox browser
 Capybara.javascript_driver = :headless_chrome
+Capybara.server_port = 3001
+
