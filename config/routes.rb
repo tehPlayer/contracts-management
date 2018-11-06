@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'contracts#index'
 
-  resources :contracts, only: [:index]
+  resources :contracts, only: [:index, :new, :create]
 
   devise_for :users, controllers: {
     sessions: 'users/sessions'

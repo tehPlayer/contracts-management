@@ -7,4 +7,8 @@ class ContractsController < ApplicationController
       includes(:vendor, :category).
       as_json(methods: %I[vendor_name category_name])
   end
+
+  def new
+    @contract = current_user.contracts.new
+  end
 end
