@@ -1,5 +1,6 @@
 class ContractsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_contract, only: %I[edit update]
 
   def index
     @contracts = current_user.
@@ -26,7 +27,26 @@ class ContractsController < ApplicationController
     end
   end
 
+  def edit
+    @vendors = Vendor.all
+    @categories = @contract.vendor.categories
+  end
+
+  def update
+    if @contract.update(contract_params)
+      redirect_to contracts_path, notice: "Your contract was updated."
+    else
+      flash[:alert] = @contract.errors.full_messages.to_sentence
+      edit
+      render action: :edit
+    end
+  end
+
   protected
+
+    def set_contract
+      @contract = current_user.contracts.find(params[:id])
+    end
 
     def contract_params
       params.require(:contract).permit(:vendor_id, :category_id, :costs, :ends_on)

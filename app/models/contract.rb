@@ -22,6 +22,6 @@ class Contract < ApplicationRecord
   end
 
   def ends_on_is_in_the_future
-    errors.add(:ends_on, :inclusion) unless ends_on > Date.today
+    errors.add(:ends_on, :inclusion) if ends_on.present? && ends_on <= Date.today
   end
 end
