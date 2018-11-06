@@ -9,7 +9,7 @@
   }
 
   input.form-control {
-    border-radius: 10px;
+    border-radius: 5px;
   }
 
   input[type=submit] {
@@ -19,5 +19,19 @@
     border: 0;
     background-color: #b4bbc6;
     width: 90px;
+    -webkit-transition: background-color 0.2s ease-out;
+    -moz-transition: background-color 0.2s ease-out;
+    -o-transition: background-color 0.2s ease-out;
+    -ms-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
+
+    &:hover {
+      background-color: #c4cbd6;
+    }
+  }
+
+  .react-date-picker__wrapper {
+    border: 0;
+    width: 100%;
   }
 }

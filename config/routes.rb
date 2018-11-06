@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root to: 'contracts#index'
 
+  scope module: 'api' do
+    resources :categories, only: [:index]
+  end
+
   resources :contracts, only: [:index, :new, :create]
 
   devise_for :users, controllers: {

@@ -23,7 +23,7 @@ RSpec.feature "New Contracts", type: :feature do
 
     before do
       vodafone.categories = [internet, phone, mobile_phone, dsl]
-      o2.categories = [interne, dsl]
+      o2.categories = [internet, dsl]
       vattenfall.categories = [internet, electricity, gas]
     end
 
@@ -33,7 +33,7 @@ RSpec.feature "New Contracts", type: :feature do
     end
 
     scenario 'Create contract with valid informations' do
-      find('select#vendor').find("option[value='#{vodafone.id}'").select_option
+      find('select[name="vendor_id"]').find("option[value='#{vodafone.id}'").select_option
     end
   end
 end
