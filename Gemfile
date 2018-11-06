@@ -35,6 +35,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'capybara-selenium'
+  gem 'database_cleaner'
 end
 
 group :development do

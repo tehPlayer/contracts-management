@@ -6,10 +6,10 @@ const ListItem = (props) => {
     <table className="table">
       <thead>
         <tr>
-          <th scope="col">Vendor</th>
+          <th scope="col">Vendor name</th>
           <th scope="col">Category</th>
           <th scope="col">Costs</th>
-          <th scope="col">Ends On</th>
+          <th scope="col">Ends on</th>
         </tr>
       </thead>
       <tbody>
