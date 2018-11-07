@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from '../../axios_local';
+import axios from '../../axiosLocal';
 import DatePicker from 'react-date-picker';
 import moment from 'moment';
 
