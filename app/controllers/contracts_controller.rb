@@ -11,7 +11,7 @@ class ContractsController < ApplicationController
 
   def new
     @vendors = Vendor.all
-    @contract = current_user.contracts.new
+    @contract = current_user.contracts.new(ends_on: Date.today.next_week)
   end
 
   def create
