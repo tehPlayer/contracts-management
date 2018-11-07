@@ -17,7 +17,7 @@ RSpec.describe ContractsController, type: :controller do
           vendor_id: vendor.id,
           category_id: category.id,
           costs: '10.5',
-          ends_on: '2018-13-01'
+          ends_on: '2018-12-01'
         }
       }
     end
@@ -27,9 +27,23 @@ RSpec.describe ContractsController, type: :controller do
     end
 
     it 'Won\'t create a contract with an invalid ends on' do
-      expect { post :create, params: params }.to_not change(Contract, :count)
+      expect {
+        post :create, params: {contract: params[:contract].merge(ends_on: '2018-13-01')} 
+      }.to_not(
+        change(Contract, :count)
+      )
       expect(response).to_not have_http_status(:redirect)
       expect(flash[:alert]).to include('Ends On is invalid')
+    end
+
+    it 'won\'t create a contract if category is missing' do
+      expect {
+        post :create, params: {contract: params[:contract].merge(category_id: '')}
+      }.to_not(
+        change(Contract, :count)
+      )
+      expect(response).to_not have_http_status(:redirect)
+      expect(flash[:alert]).to include('Category can\'t be blank')
     end
   end
 

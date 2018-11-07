@@ -18,7 +18,9 @@ class Contract < ApplicationRecord
   private
 
   def category_belongs_to_vendor
-    errors.add(:category, :confirmation) unless vendor.category_exists?(category.id)
+    return if category.blank? || vendor.category_exists?(category.id)
+
+    errors.add(:category, :confirmation)
   end
 
   def ends_on_is_in_the_future
