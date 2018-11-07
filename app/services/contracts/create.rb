@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Contracts
   class Create < ServicesBase
     attr_accessor :params, :contract, :user

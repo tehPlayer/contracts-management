@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ServicesBase
   attr_accessor :success, :result
 
