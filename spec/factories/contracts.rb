@@ -4,7 +4,7 @@ FactoryBot.define do
     costs { 10.5 }
     ends_on { Date.tomorrow }
 
-    before(:create) do |contract, evaluator|
+    before(:create) do |contract, _evaluator|
       if contract.vendor.nil? || contract.category.nil?
         vc = create(:vendor_category)
         contract.vendor ||= vc.vendor

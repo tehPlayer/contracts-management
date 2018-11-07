@@ -3,7 +3,8 @@ module Contracts
     attr_accessor :params, :contract, :user
 
     def initialize(params, user)
-      @params, @user = params, user
+      @params = params
+      @user = user
     end
 
     def perform!
@@ -14,15 +15,15 @@ module Contracts
 
     protected
 
-      def scaffold_contract!
-        @contract = user.contracts.new(params)
-      end
+    def scaffold_contract!
+      @contract = user.contracts.new(params)
+    end
 
-      def validate_ends_on
-        Date.parse(params[:ends_on])
-      rescue ArgumentError
-        contract.errors.add(:ends_on, :invalid)
-        false
-      end
+    def validate_ends_on
+      Date.parse(params[:ends_on])
+    rescue ArgumentError
+      contract.errors.add(:ends_on, :invalid)
+      false
+    end
   end
 end

@@ -1,0 +1,22 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'script/**/*'
+    - 'app/views/**/*'
+    - 'node_modules/**/*'
+    - 'app/javascript/**/*'
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+Style/Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 100
+Metrics/AbcSize:
+  Max: 25
+Style/DoubleNegation:
+  Enabled: false

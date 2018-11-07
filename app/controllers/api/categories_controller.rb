@@ -9,8 +9,8 @@ module Api
 
     private
 
-      def set_vendor
-        @vendor = Vendor.find(params[:vendor_id])
-      end
+    def set_vendor
+      @vendor = Vendor.find(params[:vendor_id])
+    end
   end
 end

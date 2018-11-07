@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Api::CategoriesController, type: :controller do
-
-  describe "GET #index" do
+  describe 'GET #index' do
     let!(:user) { create(:user) }
     let!(:vendor) { create(:vendor) }
     let!(:other_vendor) { create(:vendor) }
@@ -13,8 +12,8 @@ RSpec.describe Api::CategoriesController, type: :controller do
       sign_in user
     end
 
-    it "returns empty categories, if there is none categories linked to vendor" do
-      get :index, params: {vendor_id: vendor.id}
+    it 'returns empty categories, if there is none categories linked to vendor' do
+      get :index, params: { vendor_id: vendor.id }
       expect(response_json).to eq([])
     end
 
@@ -25,10 +24,9 @@ RSpec.describe Api::CategoriesController, type: :controller do
       end
 
       it 'returns these categories, which belong to certain vendor' do
-        get :index, params: {vendor_id: vendor.id}
-        expect(response_json.map{|x| x['id']}).to contain_exactly(*categories.map(&:id))
+        get :index, params: { vendor_id: vendor.id }
+        expect(response_json.map { |x| x['id'] }).to contain_exactly(*categories.map(&:id))
       end
     end
   end
-
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "New Contracts", type: :feature, js: true do
+RSpec.feature 'New Contracts', type: :feature, js: true do
   let(:user) { create(:user) }
 
   scenario 'User is not signed in' do
@@ -28,7 +28,7 @@ RSpec.feature "New Contracts", type: :feature, js: true do
     end
 
     before do
-      login_as(user, :scope => :user)
+      login_as(user, scope: :user)
       visit '/contracts/new'
     end
 
@@ -42,9 +42,9 @@ RSpec.feature "New Contracts", type: :feature, js: true do
           find('.react-calendar__month-view__days__day:last-child').click
         end
 
-        expect {
+        expect do
           click_on('Create')
-        }.to change(Contract, :count).by(1)
+        end.to change(Contract, :count).by(1)
       end
 
       expect(page).to have_text(
@@ -63,9 +63,9 @@ RSpec.feature "New Contracts", type: :feature, js: true do
           find('.react-calendar__month-view__days__day:last-child').click
         end
 
-        expect {
+        expect do
           click_on('Create')
-        }.to_not change(Contract, :count)
+        end.to_not change(Contract, :count)
       end
 
       expect(page).to have_text('The cost value is invalid')
@@ -82,9 +82,9 @@ RSpec.feature "New Contracts", type: :feature, js: true do
           find('.react-calendar__month-view__days__day:last-child').click
         end
 
-        expect {
+        expect do
           click_on('Create')
-        }.to_not change(Contract, :count)
+        end.to_not change(Contract, :count)
       end
 
       expect(page).to have_text('The cost value is invalid')
@@ -101,9 +101,9 @@ RSpec.feature "New Contracts", type: :feature, js: true do
           find('.react-calendar__month-view__days__day:last-child').click
         end
 
-        expect {
+        expect do
           click_on('Create')
-        }.to_not change(Contract, :count)
+        end.to_not change(Contract, :count)
       end
 
       expect(page).to have_text('The cost value is invalid')
@@ -120,9 +120,9 @@ RSpec.feature "New Contracts", type: :feature, js: true do
           find('.react-calendar__month-view__days__day:first-child').click
         end
 
-        expect {
+        expect do
           click_on('Create')
-        }.to_not change(Contract, :count)
+        end.to_not change(Contract, :count)
       end
 
       expect(page).to have_text('Ends On can\'t be in the past')
@@ -146,7 +146,7 @@ RSpec.feature "New Contracts", type: :feature, js: true do
       within('form.user-form') do
         vendors = all('select[name="contract[vendor_id]"] option:not(:checked)').map(&:text)
 
-        expect(vendors).to contain_exactly("Vodafone", "O2", "Vattenfall")
+        expect(vendors).to contain_exactly('Vodafone', 'O2', 'Vattenfall')
       end
     end
 
@@ -155,9 +155,8 @@ RSpec.feature "New Contracts", type: :feature, js: true do
         find('select[name="contract[vendor_id]"]').find("option[value='#{vodafone.id}']").select_option
         categories = all('select[name="contract[category_id]"] option:not(:checked)').map(&:text)
 
-        expect(categories).to contain_exactly("Internet", "Phone", "Mobile Phone", "DSL")
+        expect(categories).to contain_exactly('Internet', 'Phone', 'Mobile Phone', 'DSL')
       end
-    
     end
 
     scenario 'Select O2 as vendor' do
@@ -165,9 +164,8 @@ RSpec.feature "New Contracts", type: :feature, js: true do
         find('select[name="contract[vendor_id]"]').find("option[value='#{o2.id}']").select_option
         categories = all('select[name="contract[category_id]"] option:not(:checked)').map(&:text)
 
-        expect(categories).to contain_exactly("Internet", "DSL")
+        expect(categories).to contain_exactly('Internet', 'DSL')
       end
-    
     end
 
     scenario 'Select Vattenfall as vendor' do
@@ -175,9 +173,8 @@ RSpec.feature "New Contracts", type: :feature, js: true do
         find('select[name="contract[vendor_id]"]').find("option[value='#{vattenfall.id}']").select_option
         categories = all('select[name="contract[category_id]"] option:not(:checked)').map(&:text)
 
-        expect(categories).to contain_exactly("Internet", "Electricity", "Gas")
+        expect(categories).to contain_exactly('Internet', 'Electricity', 'Gas')
       end
-    
     end
   end
 end
