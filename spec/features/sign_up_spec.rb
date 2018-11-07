@@ -73,7 +73,7 @@ RSpec.feature 'Sign up', type: :feature do
       click_button 'Sign Up'
     end.to_not change(User, :count)
 
-    expect(page).to have_text('This email is already taken')
+    expect(page).to have_text('Email is already taken')
     expect(page).to have_current_path(signup_path)
   end
 
@@ -103,7 +103,7 @@ RSpec.feature 'Sign up', type: :feature do
       click_button 'Sign Up'
     end.to_not change(User, :count)
 
-    expect(page).to have_text('The password is too short')
+    expect(page).to have_text('Password is too short')
     expect(page).to have_current_path(signup_path)
   end
 
@@ -118,7 +118,7 @@ RSpec.feature 'Sign up', type: :feature do
       click_button 'Sign Up'
     end.to_not change(User, :count)
 
-    expect(page).to have_text('The password confirmation doesn\'t match')
+    expect(page).to have_text('Password Confirmation doesn\'t match')
     expect(page).to have_current_path(signup_path)
   end
 end

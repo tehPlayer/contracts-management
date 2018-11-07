@@ -23,6 +23,7 @@ en:
   activerecord:
     attributes:
       contract:
+        costs: The cost value 
         ends_on: Ends On
       user:
         password_confirmation: Password Confirmation
@@ -32,20 +33,20 @@ en:
         contract:
           attributes:
             category:
-              confirmation: Category doesn't belong to this vendor
+              confirmation: doesn't belong to this vendor
             costs:
-              greater_than: The cost value is invalid
-              not_a_number: The cost value is invalid
+              greater_than: is invalid
+              not_a_number: is invalid
             ends_on:
-              inclusion: Ends On can't be in the past
+              inclusion: can't be in the past
         user:
           attributes:
             email:
-              taken: This email is already taken
+              taken: is already taken
             password:
-              too_short: The password is too short
+              too_short: is too short
             password_confirmation:
-              confirmation: The password confirmation doesn't match
+              confirmation: "doesn't match"
   contracts:
     controllers:
       create:
