@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ContractsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_contract, only: %I[edit update]

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CustomFailure < Devise::FailureApp
   def route(_scope)
     :signin_url
