@@ -58,10 +58,10 @@ RSpec.feature "Contracts lists", type: :feature, js: true do
       expect(page).to have_current_path('/contracts/new')
     end
 
-    xscenario 'Edit an existing contract' do
-      click_on 'Add Contract'
+    scenario 'Edit an existing contract' do
+      find('.contracts-list table:first-child').click
 
-      expect(page).to have_current_path('/contracts/new')
+      expect(page).to have_current_path("/contracts/edit/#{contract.id}")
     end
   end
 end
