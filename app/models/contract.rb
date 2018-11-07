@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Contract < ApplicationRecord
   belongs_to :vendor
   belongs_to :category
