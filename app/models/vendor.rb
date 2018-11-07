@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Vendor < ApplicationRecord
   has_many :vendor_categories, dependent: :destroy
   has_many :categories, through: :vendor_categories
