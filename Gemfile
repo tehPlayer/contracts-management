@@ -10,7 +10,6 @@ gem 'rails', '~> 5.0.7'
 gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'devise', '~> 4.5'
-gem 'mutations'
 
 # BE/FE
 gem 'sass-rails', '~> 5.0'
