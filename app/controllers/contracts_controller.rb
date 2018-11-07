@@ -18,7 +18,7 @@ class ContractsController < ApplicationController
     service = Contracts::Create.run(contract_params, current_user)
 
     if service.success?
-      redirect_to contracts_path, notice: "Your contract was added."
+      redirect_to contracts_path, notice: t('contracts.controllers.create.messages.success')
     else
       @contract = service.result
       @vendors = Vendor.all
@@ -38,7 +38,7 @@ class ContractsController < ApplicationController
     service = Contracts::Update.run(contract_params, @contract)
 
     if service.success?
-      redirect_to contracts_path, notice: "Your contract was updated."
+      redirect_to contracts_path, notice: t('contracts.controllers.update.messages.success')
     else
       flash[:alert] = service.result.errors.full_messages.to_sentence
       edit

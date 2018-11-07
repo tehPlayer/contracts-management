@@ -1,7 +1,7 @@
 = form_for(resource, as: resource_name, url: signup_path, html: {class: 'user-form'}) do |f|
   = devise_error_messages!
   .form-group
-    = f.label :full_name, 'Full Name'
+    = f.label :full_name
     = f.text_field :full_name, autofocus: true, autocomplete: "full-name", class: 'form-control', placeholder: 'Type your name'
   .form-group
     = f.label :email
@@ -10,9 +10,9 @@
     = f.label :password
     = f.password_field :password, autocomplete: "new-password", class: 'form-control'
   .form-group
-    = f.label :password_confirmation, 'Password Confirmation'
+    = f.label :password_confirmation
     = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
   .actions
-    = f.submit "Sign Up", class: 'btn'
+    = f.submit t('devise.registrations.buttons.submit'), class: 'btn'
     hr
-    = link_to "Already have an account? Sign in!", signin_path, class: 'btn btn-primary m-auto'
+    = link_to t('devise.registrations.buttons.sign_in'), signin_path, class: 'btn btn-primary m-auto'

@@ -1,7 +1,7 @@
 #contracts
   .container
     .py-2.text-center
-      h2.heading.mb-3 Edit contract
+      h2.heading.mb-3= t('contracts.views.edit.header')
   = react_component('Contracts/Form/Form', { \
       vendors: @vendors, \
       contract: @contract, \
@@ -9,5 +9,5 @@
       form_action: contract_path(@contract), \
       form_method: 'put', \
       csrf_token: form_authenticity_token, \
-      submit_name: 'Update' \
+      submit_name: t('contracts.views.edit.buttons.submit') \
     })

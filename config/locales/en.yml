@@ -25,6 +25,7 @@ en:
       contract:
         ends_on: Ends On
       user:
+        password_confirmation: Password Confirmation
         full_name: Full Name
     errors:
       models:
@@ -45,3 +46,27 @@ en:
               too_short: The password is too short
             password_confirmation:
               confirmation: The password confirmation doesn't match
+  contracts:
+    controllers:
+      create:
+        messages:
+          success: Your contract was added
+      update:
+        messages:
+          success: Your contract was updated
+    views:
+      edit:
+        header: Edit contract
+        buttons:
+          submit: Update
+      index:
+        header: My contracts
+        buttons:
+          add_contract: Add Contract
+      new:
+        header: New contract
+        buttons:
+          submit: Create
+  navbar:
+    links:
+      home: Home

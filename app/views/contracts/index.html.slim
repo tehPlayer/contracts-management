@@ -1,7 +1,7 @@
 #contracts
   .container
     .py-5.text-center
-      h2.heading.mb-3 My contracts
-      = link_to 'Add Contract', new_contract_path, class: 'btn add-contract'
+      h2.heading.mb-3= t('contracts.views.index.header')
+      = link_to t('contracts.views.index.buttons.add_contract'), new_contract_path, class: 'btn add-contract'
 
   = react_component('Contracts/List/List', {contracts: @contracts})

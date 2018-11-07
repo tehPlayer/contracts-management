@@ -10,7 +10,7 @@
       = f.check_box :remember_me, class: 'form-control'
       = f.label :remember_me
   .actions
-    = f.submit "Sign In", class: 'btn'
+    = f.submit t('devise.sessions.buttons.submit'), class: 'btn'
     hr
-    = link_to "Don't have an account yet? Sign up!", signup_path, class: 'btn btn-primary m-auto'
+    = link_to t('devise.sessions.buttons.sign_up'), signup_path, class: 'btn btn-primary m-auto'
     
