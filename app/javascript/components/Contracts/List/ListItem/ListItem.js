@@ -3,7 +3,7 @@ import moment from 'moment';
 
 const ListItem = (props) => {
   return (
-    <table className="table">
+    <table className="table" onClick={() => props.clicked(props.id)}>
       <thead>
         <tr>
           <th scope="col">Vendor name</th>

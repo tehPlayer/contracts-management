@@ -15,10 +15,12 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @contract = current_user.contracts.new(contract_params)
-    if @contract.save
+    service = Contracts::Create.run(contract_params, current_user)
+
+    if service.success?
       redirect_to contracts_path, notice: "Your contract was added."
     else
+      @contract = service.result
       @vendors = Vendor.all
       @categories = @contract.vendor&.categories
 
@@ -33,10 +35,12 @@ class ContractsController < ApplicationController
   end
 
   def update
-    if @contract.update(contract_params)
+    service = Contracts::Update.run(contract_params, @contract)
+
+    if service.success?
       redirect_to contracts_path, notice: "Your contract was updated."
     else
-      flash[:alert] = @contract.errors.full_messages.to_sentence
+      flash[:alert] = service.result.errors.full_messages.to_sentence
       edit
       render action: :edit
     end
