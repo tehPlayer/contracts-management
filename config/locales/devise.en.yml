@@ -44,10 +44,17 @@ en:
       signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
       updated: "Your account has been updated successfully."
+      buttons:
+        submit: "Sign Up"
+        sign_in: "Already have an account? Sign in!"
     sessions:
       signed_in: "Welcome back, %{name}"
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
+      buttons:
+        submit: "Sign In"
+        sign_up: "Don't have an account yet? Sign up!"
+        sign_out: "Sign out"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
