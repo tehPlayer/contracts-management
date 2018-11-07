@@ -3,6 +3,8 @@ import axios from 'axios';
 let hostname;
 switch(window.env) {
   case 'production':
+    hostname: 'https://marcin-contract-management.herokuapp.com'
+    break;
   case 'development':
     hostname = 'http://localhost:3000';
     break;
