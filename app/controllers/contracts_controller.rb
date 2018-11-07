@@ -3,10 +3,10 @@ class ContractsController < ApplicationController
   before_action :set_contract, only: %I[edit update]
 
   def index
-    @contracts = current_user.
-      contracts.
-      includes(:vendor, :category).
-      as_json(methods: %I[vendor_name category_name])
+    @contracts = current_user
+                 .contracts
+                 .includes(:vendor, :category)
+                 .as_json(methods: %I[vendor_name category_name])
   end
 
   def new
@@ -22,7 +22,7 @@ class ContractsController < ApplicationController
     else
       @contract = service.result
       @vendors = Vendor.all
-      @categories = @contract.vendor&.categories
+      @categories = @contract.vendor.try(:categories)
 
       flash[:alert] = @contract.errors.full_messages.to_sentence
       render :new
@@ -48,11 +48,11 @@ class ContractsController < ApplicationController
 
   protected
 
-    def set_contract
-      @contract = current_user.contracts.find(params[:id])
-    end
+  def set_contract
+    @contract = current_user.contracts.find(params[:id])
+  end
 
-    def contract_params
-      params.require(:contract).permit(:vendor_id, :category_id, :costs, :ends_on)
-    end
+  def contract_params
+    params.require(:contract).permit(:vendor_id, :category_id, :costs, :ends_on)
+  end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Contracts lists", type: :feature, js: true do
+RSpec.feature 'Contracts lists', type: :feature, js: true do
   let(:user) { create(:user) }
 
   scenario 'User is not signed in' do
@@ -11,7 +11,7 @@ RSpec.feature "Contracts lists", type: :feature, js: true do
 
   describe 'User is signed in, but has no contracts' do
     before do
-      login_as(user, :scope => :user)
+      login_as(user, scope: :user)
       visit '/contracts'
     end
 
@@ -21,7 +21,7 @@ RSpec.feature "Contracts lists", type: :feature, js: true do
       )
       expect(page).to have_selector(:link_or_button, 'Add Contract')
     end
-    
+
     scenario 'Create a new contract' do
       click_on 'Add Contract'
 
@@ -32,7 +32,7 @@ RSpec.feature "Contracts lists", type: :feature, js: true do
     let!(:contract) { create(:contract, user: user) }
 
     before do
-      login_as(user, :scope => :user)
+      login_as(user, scope: :user)
       visit '/contracts'
     end
 
@@ -44,7 +44,7 @@ RSpec.feature "Contracts lists", type: :feature, js: true do
         have_text([contract.vendor_name, contract.category_name].join(' '))
       )
       expect(page).to(
-        have_text("$ #{'%.2f' % contract.costs}")
+        have_text("$ #{format('%.2f', contract.costs)}")
       )
       expect(page).to(
         have_text(contract.ends_on.strftime('%b %-d, %Y'))

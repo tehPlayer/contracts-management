@@ -1,16 +1,20 @@
-= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'user-form'}) do |f|
-  .form-group
-    = f.label :email
-    = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Your email address'
-  .form-group
-    = f.label :password
-    = f.password_field :password, autocomplete: "current-password", class: 'form-control'
-  - if devise_mapping.rememberable?
+.container.w-50
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'user-form'}) do |f|
     .form-group
-      = f.check_box :remember_me, class: 'form-control'
-      = f.label :remember_me
-  .actions
-    = f.submit t('devise.sessions.buttons.submit'), class: 'btn'
-    hr
-    = link_to t('devise.sessions.buttons.sign_up'), signup_path, class: 'btn btn-primary m-auto'
-    
+      = f.label :email
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Your email address'
+    .form-group
+      = f.label :password
+      = f.password_field :password, autocomplete: "current-password", class: 'form-control'
+    - if devise_mapping.rememberable?
+      .form-group
+        = f.check_box :remember_me, class: 'form-control'
+        = f.label :remember_me
+    .actions
+      = f.submit t('devise.sessions.buttons.submit'), class: 'btn'
+      hr
+      .text-center
+        small= t('devise.sessions.no_account_yet')
+        br
+        = link_to t('devise.sessions.buttons.sign_up'), signup_path, class: 'btn btn-primary m-auto'
+      

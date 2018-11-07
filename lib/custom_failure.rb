@@ -1,5 +1,5 @@
 class CustomFailure < Devise::FailureApp
-  def route(scope)
+  def route(_scope)
     :signin_url
   end
 
