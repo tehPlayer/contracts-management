@@ -13,7 +13,7 @@ export default class Form extends Component {
     vendors: this.props.vendors,
     categories: this.props.categories || [],
     costs: this.props.contract.costs,
-    endsOn: moment(this.props.contract.endsOn).toDate()
+    endsOn: moment(this.props.contract.ends_on).toDate()
   };
 
   vendorChanged = (event) => {
