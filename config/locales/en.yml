@@ -67,6 +67,8 @@ en:
         header: New contract
         buttons:
           submit: Create
+  main:
+    title: Contract management
   navbar:
     links:
       home: Home
